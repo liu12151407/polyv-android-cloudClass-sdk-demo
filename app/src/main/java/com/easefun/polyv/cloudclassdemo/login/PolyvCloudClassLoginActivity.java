@@ -200,7 +200,7 @@ public class PolyvCloudClassLoginActivity extends PolyvBaseActivity implements V
         channelId.setText("2160447");
 
         playbackChannelId.setText("");
-        playbackUserId.setText("");
+        playbackUserId.setText("83bcc6357d");
         playbackVideoId.setText("");
         playbackAppId.setText("");
         playbackAppSecret.setText("");
