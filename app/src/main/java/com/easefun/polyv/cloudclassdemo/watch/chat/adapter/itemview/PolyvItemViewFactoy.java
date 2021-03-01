@@ -1,7 +1,7 @@
 package com.easefun.polyv.cloudclassdemo.watch.chat.adapter.itemview;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 

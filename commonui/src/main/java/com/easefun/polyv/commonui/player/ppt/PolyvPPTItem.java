@@ -1,8 +1,8 @@
 package com.easefun.polyv.commonui.player.ppt;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.easefun.polyv.businesssdk.api.common.ppt.IPolyvPPTView;
 import com.easefun.polyv.commonui.PolyvCommonMediacontroller;
 import com.easefun.polyv.commonui.R;
 import com.easefun.polyv.foundationsdk.log.PolyvCommonLog;

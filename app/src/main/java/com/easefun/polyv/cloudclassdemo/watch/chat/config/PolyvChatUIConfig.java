@@ -1,8 +1,8 @@
 package com.easefun.polyv.cloudclassdemo.watch.chat.config;
 
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.StringDef;
+import androidx.annotation.ColorInt;
+import androidx.annotation.StringDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

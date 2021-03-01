@@ -1,6 +1,6 @@
 package com.easefun.polyv.cloudclassdemo;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 import com.easefun.polyv.businesssdk.vodplayer.PolyvVodSDKClient;
 import com.easefun.polyv.cloudclass.config.PolyvLiveSDKClient;

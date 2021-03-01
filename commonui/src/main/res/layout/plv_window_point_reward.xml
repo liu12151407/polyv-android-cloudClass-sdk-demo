@@ -85,7 +85,7 @@
             </FrameLayout>
 
 
-            <android.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/plv_vp_point_reward"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"

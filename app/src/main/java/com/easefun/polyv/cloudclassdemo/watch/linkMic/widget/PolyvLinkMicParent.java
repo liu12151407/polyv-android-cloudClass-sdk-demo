@@ -3,7 +3,7 @@ package com.easefun.polyv.cloudclassdemo.watch.linkMic.widget;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;

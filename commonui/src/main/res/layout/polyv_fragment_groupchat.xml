@@ -6,7 +6,7 @@
     android:id="@+id/plv_rl_group_chat_fragment"
     android:background="#e9ebf5">
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/chat_pull_load"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:overScrollMode="never"
             android:paddingBottom="10dp" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.easefun.polyv.commonui.widget.PolyvPressedHalfBgView
         android:id="@+id/tv_unread"

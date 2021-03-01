@@ -13,7 +13,7 @@ import android.util.AttributeSet;
  * author: hwj
  * description: 字体描边
  */
-public class PolyvPointRewardStrokeTextView extends android.support.v7.widget.AppCompatTextView {
+public class PolyvPointRewardStrokeTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     private TextPaint strokePaint;
 

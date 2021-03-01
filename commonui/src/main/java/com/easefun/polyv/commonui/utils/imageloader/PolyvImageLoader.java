@@ -2,8 +2,8 @@ package com.easefun.polyv.commonui.utils.imageloader;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.WorkerThread;
 import android.widget.ImageView;
 
 import com.easefun.polyv.commonui.utils.imageloader.glide.GlideImageLoadEngine;
