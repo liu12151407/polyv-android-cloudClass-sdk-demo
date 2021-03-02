@@ -1,7 +1,7 @@
 package com.easefun.polyv.cloudclassdemo.watch.player.live.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;

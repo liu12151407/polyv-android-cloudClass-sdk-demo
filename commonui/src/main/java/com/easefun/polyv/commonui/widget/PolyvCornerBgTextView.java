@@ -1,7 +1,7 @@
 package com.easefun.polyv.commonui.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -18,7 +18,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 
-public class PolyvCornerBgTextView extends android.support.v7.widget.AppCompatTextView {
+public class PolyvCornerBgTextView extends androidx.appcompat.widget.AppCompatTextView {
     private Disposable disposable;
 
     public PolyvCornerBgTextView(Context context) {

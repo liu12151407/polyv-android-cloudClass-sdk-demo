@@ -3,8 +3,8 @@ package com.easefun.polyv.cloudclassdemo.login;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.SwitchCompat;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -194,16 +194,16 @@ public class PolyvCloudClassLoginActivity extends PolyvBaseActivity implements V
 
     // <editor-fold defaultstate="collapsed" desc="设置测试数据">
     private void setTestData() {
-        appId.setText("");
-        appSecert.setText("");
-        userId.setText("");
-        channelId.setText("");
+        appId.setText("fw3tzepxn1");
+        appSecert.setText("ace7ee93632b4c5b85e2aaa786177882");
+        userId.setText("83bcc6357d");
+        channelId.setText("2160447");
 
-        playbackChannelId.setText("");
-        playbackUserId.setText("");
+        playbackChannelId.setText("2160447");
+        playbackUserId.setText("83bcc6357d");
         playbackVideoId.setText("");
-        playbackAppId.setText("");
-        playbackAppSecret.setText("");
+        playbackAppId.setText("fw3tzepxn1");
+        playbackAppSecret.setText("ace7ee93632b4c5b85e2aaa786177882");
     }
     // </editor-fold>
 

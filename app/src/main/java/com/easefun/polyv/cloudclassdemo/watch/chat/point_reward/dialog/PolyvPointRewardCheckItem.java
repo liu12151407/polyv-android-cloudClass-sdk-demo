@@ -14,7 +14,7 @@ import java.util.List;
  * author: hwj
  * description: 每个Fragment中保存3个（默认）道具，每个道具都有check的点击效果
  */
-class PolyvPointRewardCheckItem extends android.support.v7.widget.AppCompatCheckBox {
+class PolyvPointRewardCheckItem extends androidx.appcompat.widget.AppCompatCheckBox {
     private List<OnCheckedChangeListener> onCheckedChangeListeners = new ArrayList<>();
     private PolyvPointRewardSettingVO.GoodsBean goodsBean;
 

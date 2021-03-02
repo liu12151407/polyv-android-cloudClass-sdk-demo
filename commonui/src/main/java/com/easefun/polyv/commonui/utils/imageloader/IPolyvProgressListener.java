@@ -1,7 +1,7 @@
 package com.easefun.polyv.commonui.utils.imageloader;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * date: 2019/9/4 0004

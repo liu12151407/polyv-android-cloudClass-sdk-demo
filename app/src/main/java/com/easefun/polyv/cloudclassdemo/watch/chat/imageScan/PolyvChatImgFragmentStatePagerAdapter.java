@@ -1,8 +1,8 @@
 package com.easefun.polyv.cloudclassdemo.watch.chat.imageScan;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import android.view.View;
 
 import com.easefun.polyv.cloudclassdemo.watch.chat.adapter.PolyvChatListAdapter;

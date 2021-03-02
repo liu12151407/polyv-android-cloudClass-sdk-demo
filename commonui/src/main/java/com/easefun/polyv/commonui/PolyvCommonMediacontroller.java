@@ -2,34 +2,27 @@ package com.easefun.polyv.commonui;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.easefun.polyv.businesssdk.api.common.meidaControl.IPolyvMediaController;
 import com.easefun.polyv.businesssdk.api.common.player.microplayer.PolyvCommonVideoView;
 import com.easefun.polyv.businesssdk.model.video.PolyvBitrateVO;
-import com.easefun.polyv.businesssdk.model.video.PolyvDefinitionVO;
 import com.easefun.polyv.businesssdk.model.video.PolyvLiveLinesVO;
-import com.easefun.polyv.commonui.player.adapter.PolyvBitRateAdapter;
 import com.easefun.polyv.foundationsdk.log.PolyvCommonLog;
 import com.easefun.polyv.foundationsdk.utils.PolyvScreenUtils;
 
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * @author df
