@@ -80,8 +80,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
     }
 
     private void initView(Context context) {
-        if (!(context instanceof Activity))
+        if (!(context instanceof Activity)) {
             throw new RuntimeException("must use activity create videoitem");
+        }
         this.context = (Activity) context;
         this.view = LayoutInflater.from(this.context).inflate(R.layout.polyv_video_item, this);
         videoView = (PolyvVodVideoView) findViewById(R.id.pb_videoview);
@@ -165,8 +166,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                 String tips = adStage == PolyvAuxiliaryVideoview.PLAY_STAGE_HEADAD ? "片头广告"
                         : adStage == PolyvAuxiliaryVideoview.PLAY_STAGE_TAILAD ? "片尾广告" : "";
                 tvCountdown.setText(tips + "也精彩：" + remainTime + "秒");
-                if (adStage == PolyvAuxiliaryVideoview.PLAY_STAGE_HEADAD)
+                if (adStage == PolyvAuxiliaryVideoview.PLAY_STAGE_HEADAD) {
                     tvSkip.setVisibility(View.VISIBLE);
+                }
                 if (remainTime == 0) {
                     tvCountdown.setVisibility(View.GONE);
                     tvSkip.setVisibility(View.GONE);
@@ -310,8 +312,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                 if (brightness < 0) {
                     brightness = 0;
                 }
-                if (start)
+                if (start) {
                     videoView.setBrightness(context, brightness);
+                }
                 polyvLightTipsView.setLightPercent(brightness, end);
             }
         });
@@ -322,8 +325,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                 if (brightness > 100) {
                     brightness = 100;
                 }
-                if (start)
+                if (start) {
                     videoView.setBrightness(context, brightness);
+                }
                 polyvLightTipsView.setLightPercent(brightness, end);
             }
         });
@@ -334,8 +338,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                 if (volume < 0) {
                     volume = 0;
                 }
-                if (start)
+                if (start) {
                     videoView.setVolume(volume);
+                }
                 tipsviewVolume.setVolumePercent(volume, end);
             }
         });
@@ -346,8 +351,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                 if (volume > 100) {
                     volume = 100;
                 }
-                if (start)
+                if (start) {
                     videoView.setVolume(volume);
+                }
                 tipsviewVolume.setVolumePercent(volume, end);
             }
         });
@@ -359,8 +365,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                         fastForwardPos = videoView.getCurrentPosition();
                     }
                     if (end) {
-                        if (fastForwardPos < 0)
+                        if (fastForwardPos < 0) {
                             fastForwardPos = 0;
+                        }
                         videoView.seekTo(fastForwardPos);
                         if (videoView.isCompletedState()) {
                             videoView.start();
@@ -368,8 +375,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                         fastForwardPos = 0;
                     } else {
                         fastForwardPos -= 1000 * times;
-                        if (fastForwardPos <= 0)
+                        if (fastForwardPos <= 0) {
                             fastForwardPos = -1;
+                        }
                     }
                     tipsviewProgress.setProgressPercent(fastForwardPos, videoView.getDuration(), end, false);
                 } else if (end) {
@@ -386,8 +394,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                         fastForwardPos = videoView.getCurrentPosition();
                     }
                     if (end) {
-                        if (fastForwardPos > videoView.getDuration())
+                        if (fastForwardPos > videoView.getDuration()) {
                             fastForwardPos = videoView.getDuration();
+                        }
                         if (!videoView.isCompletedState()) {
                             videoView.seekTo(fastForwardPos);
                         } else if (fastForwardPos < videoView.getDuration()) {
@@ -397,8 +406,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
                         fastForwardPos = 0;
                     } else {
                         fastForwardPos += 1000 * times;
-                        if (fastForwardPos > videoView.getDuration())
+                        if (fastForwardPos > videoView.getDuration()) {
                             fastForwardPos = videoView.getDuration();
+                        }
                     }
                     tipsviewProgress.setProgressPercent(fastForwardPos, videoView.getDuration(), end, true);
                 } else if (end) {
@@ -413,8 +423,9 @@ public class PolyvVodVideoItem extends FrameLayout implements View.OnClickListen
         videoView.setOnGetMarqueeVoListener(new IPolyvVideoViewListenerEvent.OnGetMarqueeVoListener() {
             @Override
             public void onGetMarqueeVo(PolyvLiveMarqueeVO marqueeVo) {
-                if (marqueeUtils == null)
+                if (marqueeUtils == null) {
                     marqueeUtils = new PolyvMarqueeUtils();
+                }
                 // 更新为后台设置的跑马灯类型
                 marqueeUtils.updateMarquee(context, marqueeVo,
                         marqueeItem, nickName);

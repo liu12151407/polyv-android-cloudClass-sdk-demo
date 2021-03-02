@@ -127,8 +127,9 @@ public class PolyvLikeIconView extends RelativeLayout {
     }
 
     public void addLoveIcon(int resId) {
-        if (height <= 0 || width <= 0)
+        if (height <= 0 || width <= 0) {
             return;
+        }
         ImageView view = new ImageView(getContext());
         view.setImageResource(resId);
         iconWidth = view.getDrawable().getIntrinsicWidth();
@@ -142,8 +143,9 @@ public class PolyvLikeIconView extends RelativeLayout {
     private Random randomColor = new Random();
 
     public void addLoveIcon() {
-        if (height <= 0 || width <= 0)
+        if (height <= 0 || width <= 0) {
             return;
+        }
         post(new Runnable() {
             @Override
             public void run() {

@@ -43,8 +43,9 @@ public class PolyvVolumeTipsView extends FrameLayout {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == View.GONE)
+            if (msg.what == View.GONE) {
                 setVisibility(View.GONE);
+            }
         }
     };
 

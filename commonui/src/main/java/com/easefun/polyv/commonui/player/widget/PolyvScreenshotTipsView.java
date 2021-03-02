@@ -79,12 +79,13 @@ public class PolyvScreenshotTipsView extends FrameLayout {
         rl_top.setLayoutParams(rlp);
         startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.polyv_scale_s));
         setVisibility(View.VISIBLE);
-        if (screenRatio == PolyvPlayerScreenRatio.AR_ASPECT_FILL_PARENT)
+        if (screenRatio == PolyvPlayerScreenRatio.AR_ASPECT_FILL_PARENT) {
             iv_gallery.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        else if (screenRatio == PolyvPlayerScreenRatio.AR_MATCH_PARENT)
+        } else if (screenRatio == PolyvPlayerScreenRatio.AR_MATCH_PARENT) {
             iv_gallery.setScaleType(ImageView.ScaleType.FIT_XY);
-        else
+        } else {
             iv_gallery.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        }
         iv_gallery.setImageBitmap(bitmap);
     }
 

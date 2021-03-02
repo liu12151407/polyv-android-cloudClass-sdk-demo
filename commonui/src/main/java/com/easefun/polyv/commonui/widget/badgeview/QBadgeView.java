@@ -176,7 +176,9 @@ public class QBadgeView extends View implements Badge {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (mActivityRoot == null) findViewRoot(mTargetView);
+        if (mActivityRoot == null) {
+            findViewRoot(mTargetView);
+        }
     }
 
     private void findViewRoot(View view) {
@@ -818,8 +820,9 @@ public class QBadgeView extends View implements Badge {
 
 
     private void updataListener(int state) {
-        if (mDragStateChangedListener != null)
+        if (mDragStateChangedListener != null) {
             mDragStateChangedListener.onDragStateChanged(state, this, mTargetView);
+        }
     }
 
     @Override
@@ -831,7 +834,9 @@ public class QBadgeView extends View implements Badge {
 
     @Override
     public PointF getDragCenter() {
-        if (mDraggable && mDragging) return mDragCenter;
+        if (mDraggable && mDragging) {
+            return mDragCenter;
+        }
         return null;
     }
 
