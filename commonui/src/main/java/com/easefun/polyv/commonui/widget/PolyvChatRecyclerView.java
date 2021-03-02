@@ -75,17 +75,19 @@ public class PolyvChatRecyclerView extends RecyclerView {
 
     public void setUnreadView(final TextView unreadView) {
         this.unreadView = unreadView;
-        if (unreadView == null)
+        if (unreadView == null) {
             return;
+        }
         unreadView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 hideUnredaView();
                 if (getAdapter() != null) {
-                    if ((getAdapter().getItemCount() - 1) - ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition() <= 10)
+                    if ((getAdapter().getItemCount() - 1) - ((LinearLayoutManager) getLayoutManager()).findLastVisibleItemPosition() <= 10) {
                         smoothScrollToPosition(getAdapter().getItemCount() - 1);
-                    else
+                    } else {
                         scrollToPosition(getAdapter().getItemCount() - 1);
+                    }
                 }
             }
         });
@@ -97,8 +99,9 @@ public class PolyvChatRecyclerView extends RecyclerView {
         }
         int tempUnreadCount = unreadCount;
         unreadCount = 0;
-        if (tempUnreadCount != 0)
+        if (tempUnreadCount != 0) {
             callOnUnreadChange(unreadCount);
+        }
     }
 
     public void addOnScrollListener() {
@@ -198,8 +201,9 @@ public class PolyvChatRecyclerView extends RecyclerView {
                 return true;
             }
         } else if (!lastScrollVertically_One) {
-            if (getAdapter() != null)
+            if (getAdapter() != null) {
                 super.scrollToPosition(getAdapter().getItemCount() - 1);
+            }
         } else if (getHeight() - getPaddingBottom() - getPaddingTop() < computeVerticalScrollRange()) {//排除item数为0的情况
             changeUnreadViewWithCount(count);
             return true;

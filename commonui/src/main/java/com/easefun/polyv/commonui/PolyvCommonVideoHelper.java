@@ -47,10 +47,10 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
     protected PolyvBaseVideoParams playOption;
     protected PolyvAuxiliaryVideoview subVideoview;
     protected Q controller;
-    protected View loadingView, noStreamView, audioModeView,screenShotView;
+    protected View loadingView, noStreamView, audioModeView, screenShotView;
 //    protected static int videoViewVolume;
 
-    protected  static final Handler S_HANDLER;
+    protected static final Handler S_HANDLER;
     protected PolyvPermissionManager permissionManager;
 
     private boolean firstSwitchLocation = true;//第一次切换主副屏 不用动画
@@ -81,7 +81,7 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
     }
 
     public void initPPT(T videoItem, PolyvPPTItem polyvPPTItem) {
-        if(polyvPPTItem != null){
+        if (polyvPPTItem != null) {
             pptView = (PolyvPPTView) polyvPPTItem.getPPTView();
             pptContianer = polyvPPTItem.getItemRootView().findViewById(R.id.polyv_ppt_container);
             polyvPPTItem.addMediaController(controller);
@@ -95,8 +95,9 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
     public void addVideoPlayer(ViewGroup container) {
         container.removeAllViews();
         ViewGroup viewGroup = (ViewGroup) playerParent.getParent();
-        if (viewGroup != null)
+        if (viewGroup != null) {
             viewGroup.removeView(playerParent);
+        }
         container.addView(playerParent);
 
         controller.initialConfig(container);
@@ -118,13 +119,14 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
 
     public void addPPT(PolyvTouchContainerView container) {
         pptParent = container;
-        if(pptContianer == null){
+        if (pptContianer == null) {
             return;
         }
         container.removeAllViews();
         ViewGroup viewGroup = (ViewGroup) pptContianer.getParent();
-        if (viewGroup != null)
+        if (viewGroup != null) {
             viewGroup.removeView(pptContianer);
+        }
         container.addView(pptContianer);
     }
 
@@ -150,14 +152,14 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
         if (pptContianer == null || pptView == null || videoView == null) {
             return;
         }
-        PolyvCommonLog.d(TAG,"show ppt sub:"+changeToVideoView);
+        PolyvCommonLog.d(TAG, "show ppt sub:" + changeToVideoView);
         pptContianer.removeView(changeToVideoView ? pptView : playerView);
         videoView.removeView(changeToVideoView ? playerView : pptView);
 
         videoView.addView(changeToVideoView ? pptView : playerView, 0);
         pptContianer.addView(changeToVideoView ? playerView : pptView, 0);
 
-        startAnimation(changeToVideoView?pptView:playerView);
+        startAnimation(changeToVideoView ? pptView : playerView);
 
         if (changeToVideoView) {
 
@@ -165,7 +167,7 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
                 videoView.removeView(audioModeView);
                 pptContianer.addView(audioModeView);
             }
-            if (screenShotView!=null){
+            if (screenShotView != null) {
                 videoView.removeView(screenShotView);
                 pptContianer.addView(screenShotView);
             }
@@ -188,7 +190,7 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
                 videoView.addView(audioModeView);
             }
 
-            if (screenShotView!=null){
+            if (screenShotView != null) {
                 pptContianer.removeView(screenShotView);
                 videoView.addView(screenShotView);
             }
@@ -207,29 +209,29 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
     }
 
     protected void startAnimation(View animationView) {
-        float originScaleX = (float) PolyvScreenUtils.dip2px(context,144)/ ScreenUtils.getScreenWidth() ;
+        float originScaleX = (float) PolyvScreenUtils.dip2px(context, 144) / ScreenUtils.getScreenWidth();
         AnimatorSet animationSet = new AnimatorSet();
 
 
-        if(!firstSwitchLocation){
+        if (!firstSwitchLocation) {
             animationView.setPivotX(0);
             animationView.setPivotY(0);
             ObjectAnimator scaleAnimationX =
-                    ObjectAnimator.ofFloat(animationView,"scaleX",originScaleX,1);
+                    ObjectAnimator.ofFloat(animationView, "scaleX", originScaleX, 1);
             ObjectAnimator scaleAnimationY =
-                    ObjectAnimator.ofFloat(animationView,"scaleY",originScaleX,1);
+                    ObjectAnimator.ofFloat(animationView, "scaleY", originScaleX, 1);
             scaleAnimationX.setDuration(200);
             scaleAnimationY.setDuration(200);
             scaleAnimationX.setInterpolator(new LinearInterpolator());
             scaleAnimationY.setInterpolator(new LinearInterpolator());
-            animationSet.playTogether(scaleAnimationX,scaleAnimationY);
+            animationSet.playTogether(scaleAnimationX, scaleAnimationY);
             animationSet.start();
         }
         firstSwitchLocation = false;
     }
 
     public void showCameraView() {
-        if(pptContianer != null){
+        if (pptContianer != null) {
             pptContianer.setVisibility(View.VISIBLE);
         }
         PolyvPPTItem pptItem = videoItem.getPPTItem();
@@ -260,7 +262,7 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
         }
     }
 
-    public void initVolume(){
+    public void initVolume() {
 //        this.videoViewVolume = videoView.getVolume();
     }
 
@@ -274,13 +276,13 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
 
 
     public void setNickName(String studentNickName) {
-        if(videoItem != null){
+        if (videoItem != null) {
             videoItem.setNickName(studentNickName);
         }
     }
-    
+
     protected void openVideoViewSound() {
-        if(videoView != null/* && videoViewVolume >0*/ && videoView.getIjkMediaPlayer() != null){
+        if (videoView != null/* && videoViewVolume >0*/ && videoView.getIjkMediaPlayer() != null) {
 //            videoView.setVolume(videoViewVolume);
             videoView.getIjkMediaPlayer().setVolume(1, 1);
         }
@@ -296,7 +298,7 @@ public abstract class PolyvCommonVideoHelper<T extends IPolyvVideoItem<P, Q>, P 
 //        }
     }
 
-    public void resume(){
+    public void resume() {
 //        if(videoView != null && !videoView.isPlaying()){
 //            videoView.start();
 //        }

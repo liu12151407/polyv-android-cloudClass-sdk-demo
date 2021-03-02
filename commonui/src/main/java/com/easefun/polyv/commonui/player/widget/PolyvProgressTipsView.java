@@ -55,8 +55,9 @@ public class PolyvProgressTipsView extends FrameLayout {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == View.GONE)
+            if (msg.what == View.GONE) {
                 setVisibility(View.GONE);
+            }
         }
     };
 
@@ -74,10 +75,12 @@ public class PolyvProgressTipsView extends FrameLayout {
 //                iv_right.setVisibility(View.GONE);
 //            }
             seekBar.setProgress((int) (1000L * fastForwardPos / totaltime));
-            if (fastForwardPos < 0)
+            if (fastForwardPos < 0) {
                 fastForwardPos = 0;
-            if (fastForwardPos > totaltime)
+            }
+            if (fastForwardPos > totaltime) {
                 fastForwardPos = totaltime;
+            }
             tv_currenttime.setText(PolyvTimeUtils.generateTime(fastForwardPos));
             tv_totaltime.setText(PolyvTimeUtils.generateTime(totaltime));
         }

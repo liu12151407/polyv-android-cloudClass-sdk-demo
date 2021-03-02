@@ -68,8 +68,9 @@ public class PolyvTouchContainerView extends FrameLayout {
         }
         //子view为invisible时(即非visible)不要拦截点击事件
         boolean firstChildIsVisible = getChildAt(0) == null || (getChildAt(0).getVisibility() == View.VISIBLE);
-        if (/*getVisibility() != View.VISIBLE || */!firstChildIsVisible)
+        if (/*getVisibility() != View.VISIBLE || */!firstChildIsVisible) {
             return super.onTouchEvent(event);
+        }
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             lastX = event.getX();
             lastY = event.getY();
@@ -86,14 +87,18 @@ public class PolyvTouchContainerView extends FrameLayout {
             int top = view.getTop() + offY;
             int parentWidth = ((View) view.getParent()).getMeasuredWidth();
             int parentHeight = ((View) view.getParent()).getMeasuredHeight();
-            if (offX < 0 && left < 0)
+            if (offX < 0 && left < 0) {
                 left = 0;
-            if (offY < 0 && top < 0)
+            }
+            if (offY < 0 && top < 0) {
                 top = 0;
-            if (offX > 0 && view.getRight() + offX > parentWidth)
+            }
+            if (offX > 0 && view.getRight() + offX > parentWidth) {
                 left = view.getLeft() + (parentWidth - view.getRight());
-            if (offY > 0 && view.getBottom() + offY > parentHeight)
+            }
+            if (offY > 0 && view.getBottom() + offY > parentHeight) {
                 top = view.getTop() + (parentHeight - view.getBottom());
+            }
 
             ViewGroup.MarginLayoutParams rlp = null;
             if (getParent() instanceof RelativeLayout) {

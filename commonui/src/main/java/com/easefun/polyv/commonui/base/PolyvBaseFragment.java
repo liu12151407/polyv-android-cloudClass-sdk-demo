@@ -84,8 +84,9 @@ public abstract class PolyvBaseFragment extends Fragment implements PolyvPermiss
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == myRequestCode && resultCode == Activity.RESULT_CANCELED)
+        if (requestCode == myRequestCode && resultCode == Activity.RESULT_CANCELED) {
             permissionManager.request();
+        }
     }
 
     @Override

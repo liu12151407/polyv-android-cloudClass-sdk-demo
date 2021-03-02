@@ -23,8 +23,9 @@ public class PolyvChatEventBus {
     public static PolyvChatEventBus get() {
         if (rxBusReplay == null) {
             synchronized (PolyvChatEventBus.class) {
-                if (rxBusReplay == null)
+                if (rxBusReplay == null) {
                     rxBusReplay = new PolyvChatEventBus();
+                }
             }
         }
         return rxBusReplay;

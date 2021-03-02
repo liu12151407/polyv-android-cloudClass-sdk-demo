@@ -81,9 +81,9 @@ public class PolyvSlideSwitchView extends View implements OnTouchListener {
         {
             if (now_x >= bg_on.getWidth())// 是否划出指定范围,不能让游标跑到外头,必须做这个判断
 
+            {
                 x = bg_on.getWidth() - slip_btn.getWidth() / 2;// 减去游标1/2的长度...
-
-            else if (now_x < 0) {
+            } else if (now_x < 0) {
                 x = 0;
             } else {
                 x = now_x - slip_btn.getWidth() / 2;
@@ -93,8 +93,9 @@ public class PolyvSlideSwitchView extends View implements OnTouchListener {
             {
                 x = btn_on.left;
                 canvas.drawBitmap(bg_on, matrix, paint);// 初始状态为true时应该画出打开状态图片
-            } else
+            } else {
                 x = btn_off.left;
+            }
         }
         if (isChecked) {
             canvas.drawBitmap(bg_on, matrix, paint);
@@ -103,9 +104,11 @@ public class PolyvSlideSwitchView extends View implements OnTouchListener {
         }
 
         if (x < 0)// 对游标位置进行异常判断...
+        {
             x = 0;
-        else if (x > bg_on.getWidth() - slip_btn.getWidth())
+        } else if (x > bg_on.getWidth() - slip_btn.getWidth()) {
             x = bg_on.getWidth() - slip_btn.getWidth();
+        }
         canvas.drawBitmap(slip_btn, x, 0, paint);// 画出游标.
 
     }
@@ -120,8 +123,9 @@ public class PolyvSlideSwitchView extends View implements OnTouchListener {
                 now_x = event.getX();
                 break;
             case MotionEvent.ACTION_DOWN:// 按下
-                if (event.getX() > bg_on.getWidth() || event.getY() > bg_on.getHeight())
+                if (event.getX() > bg_on.getWidth() || event.getY() > bg_on.getHeight()) {
                     return false;
+                }
                 onSlip = true;
                 down_x = event.getX();
                 now_x = down_x;
@@ -137,7 +141,9 @@ public class PolyvSlideSwitchView extends View implements OnTouchListener {
                     nowChoose = false;
                 }
                 if (isChangeOn && (choose != nowChoose)) // 如果设置了监听器,就调用其方法..
+                {
                     onChangedListener.OnChanged(this, nowChoose);
+                }
                 break;
             case MotionEvent.ACTION_UP:// 松开
                 onSlip = false;
@@ -150,7 +156,9 @@ public class PolyvSlideSwitchView extends View implements OnTouchListener {
                     nowChoose = false;
                 }
                 if (isChangeOn && (lastChoose != nowChoose)) // 如果设置了监听器,就调用其方法..
+                {
                     onChangedListener.OnChanged(this, nowChoose);
+                }
                 break;
             default:
         }

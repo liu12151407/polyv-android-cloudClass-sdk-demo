@@ -62,8 +62,9 @@ public class PolyvVodMediaController extends PolyvCommonMediacontroller<PolyvVod
             // 单位：毫秒
             int position = polyvVideoView.getCurrentPosition();
             int totalTime = polyvVideoView.getDuration() / 1000 * 1000;
-            if (polyvVideoView.isCompletedState() || position > totalTime)
+            if (polyvVideoView.isCompletedState() || position > totalTime) {
                 position = totalTime;
+            }
             int bufPercent = polyvVideoView.getBufferPercentage();
             //在拖动进度条的时候，这里不更新
             if (!status_dragging) {
@@ -127,8 +128,9 @@ public class PolyvVodMediaController extends PolyvCommonMediacontroller<PolyvVod
 
 
     private void initView(Context context) {
-        if (!(context instanceof Activity))
+        if (!(context instanceof Activity)) {
             throw new RuntimeException("must use activity inflate controller");
+        }
         this.context = (Activity) context;
         rootView = LayoutInflater.from(this.context).inflate(R.layout.polyv_controller, this);
         //port controller
@@ -233,8 +235,9 @@ public class PolyvVodMediaController extends PolyvCommonMediacontroller<PolyvVod
     //重置控制栏的隐藏时间
     private void resetHideTime(int delayedTime) {
         noLeakHandler.removeMessages(HIDE);
-        if (delayedTime >= 0)
+        if (delayedTime >= 0) {
             noLeakHandler.sendMessageDelayed(noLeakHandler.obtainMessage(HIDE), delayedTime);
+        }
     }
 
     @Override
@@ -388,6 +391,7 @@ public class PolyvVodMediaController extends PolyvCommonMediacontroller<PolyvVod
         }
     }
 
+    @Override
     public void changePPTVideoLocation() {
         if (polyvVodVideoHelper != null) {
             polyvVodVideoHelper.changePPTViewToVideoView(showPPTSubView);
@@ -449,8 +453,9 @@ public class PolyvVodMediaController extends PolyvCommonMediacontroller<PolyvVod
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         PolyvCommonLog.d(TAG, "seekBarChangeListener onProgressChanged");
-        if (!fromUser)
+        if (!fromUser) {
             return;
+        }
         int i1 = seekBar.getId();
         if (i1 == R.id.sb_playprogress || i1 == R.id.sb_playprogress_land) {
             resetHideTime(SHOW_TIME);
@@ -465,15 +470,17 @@ public class PolyvVodMediaController extends PolyvCommonMediacontroller<PolyvVod
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         PolyvCommonLog.d(TAG, "seekBarChangeListener onStartTrackingTouch");
-        if (!seekBar.isSelected())
+        if (!seekBar.isSelected()) {
             seekBar.setSelected(true);
+        }
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         PolyvCommonLog.d(TAG, "seekBarChangeListener onStopTrackingTouch");
-        if (seekBar.isSelected())
+        if (seekBar.isSelected()) {
             seekBar.setSelected(false);
+        }
         int i = seekBar.getId();
         if (i == R.id.sb_playprogress || i == R.id.sb_playprogress_land) {
             if (polyvVideoView.isInPlaybackStateEx() && polyvVideoView.isVodPlayMode()) {

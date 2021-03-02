@@ -72,24 +72,27 @@ public class PolyvBaseActivity extends AppCompatActivity implements PolyvPermiss
         resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         resolveIntent.setPackage(getPackageName());
         List<ResolveInfo> resolveInfos = getPackageManager().queryIntentActivities(resolveIntent, 0);
-        if (resolveInfos != null)
+        if (resolveInfos != null) {
             for (ResolveInfo resolveInfo : resolveInfos) {
                 return resolveInfo.activityInfo.name;
             }
+        }
         return null;
     }
 
     private int getTaskActivityCount() {
         ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
-        if (am == null)
+        if (am == null) {
             return -1;
+        }
         try {
             // get the info from the currently running task
             List<ActivityManager.RunningTaskInfo> taskInfos = am.getRunningTasks(1);
-            if (taskInfos != null)
+            if (taskInfos != null) {
                 for (ActivityManager.RunningTaskInfo taskInfo : taskInfos) {
                     return taskInfo.numActivities;
                 }
+            }
         } catch (Exception e) {
         }
         return -1;
@@ -138,8 +141,9 @@ public class PolyvBaseActivity extends AppCompatActivity implements PolyvPermiss
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == myRequestCode && resultCode == Activity.RESULT_CANCELED)
+        if (requestCode == myRequestCode && resultCode == Activity.RESULT_CANCELED) {
             permissionManager.request();
+        }
     }
 
     @Override

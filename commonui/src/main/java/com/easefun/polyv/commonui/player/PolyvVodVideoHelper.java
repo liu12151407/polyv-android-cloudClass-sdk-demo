@@ -76,6 +76,7 @@ public class PolyvVodVideoHelper extends PolyvCommonVideoHelper<PolyvVodVideoIte
         }
     }
 
+    @Override
     public void pause() {
         videoView.pause();
     }
@@ -124,10 +125,12 @@ public class PolyvVodVideoHelper extends PolyvCommonVideoHelper<PolyvVodVideoIte
         return controller.hideUI();
     }
 
+    @Override
     public void changeToPortrait() {
         controller.changeToPortrait();
     }
 
+    @Override
     public void changeToLandscape() {
         controller.changeToLandscape();
     }
@@ -142,10 +145,11 @@ public class PolyvVodVideoHelper extends PolyvCommonVideoHelper<PolyvVodVideoIte
 
     public void onStop() {
         isPlayingOnStop = videoView.isPlaying() || subVideoview.isShow();
-        if (videoView.isBackgroundPlayEnabled())
+        if (videoView.isBackgroundPlayEnabled()) {
             videoView.enterBackground();
-        else
+        } else {
             videoView.pause();
+        }
     }
 
 }

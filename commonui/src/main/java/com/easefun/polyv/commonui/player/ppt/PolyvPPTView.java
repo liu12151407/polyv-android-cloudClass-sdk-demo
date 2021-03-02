@@ -213,6 +213,7 @@ public class PolyvPPTView extends FrameLayout implements IPolyvPPTView {
         return super.onTouchEvent(event);
     }
 
+    @Override
     public void setLoadingViewVisible(int visible) {
         if (pptLoadingView != null) {
             pptLoadingView.setVisibility(visible);

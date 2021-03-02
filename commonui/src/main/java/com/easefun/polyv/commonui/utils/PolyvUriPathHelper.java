@@ -42,7 +42,9 @@ public class PolyvUriPathHelper {
     }
 
     public static String getFileName(Uri uri) {
-        if (uri == null) return null;
+        if (uri == null) {
+            return null;
+        }
         String fileName = null;
         String path = uri.getPath();
         int cut = path.lastIndexOf('/');
@@ -55,7 +57,9 @@ public class PolyvUriPathHelper {
     public static void copyFile(Context context, Uri srcUri, File dstFile) {
         try {
             InputStream inputStream = context.getContentResolver().openInputStream(srcUri);
-            if (inputStream == null) return;
+            if (inputStream == null) {
+                return;
+            }
             OutputStream outputStream = new FileOutputStream(dstFile);
             copyStream(inputStream, outputStream);
             inputStream.close();
@@ -203,8 +207,9 @@ public class PolyvUriPathHelper {
             String path = getFilePathFromURI(context, uri);
             return !TextUtils.isEmpty(path) ? path : getFilePathForN(uri, context);
         } finally {
-            if (cursor != null)
+            if (cursor != null) {
                 cursor.close();
+            }
         }
         return null;
     }

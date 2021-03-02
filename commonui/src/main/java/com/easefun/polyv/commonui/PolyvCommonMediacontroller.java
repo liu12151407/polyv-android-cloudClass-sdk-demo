@@ -3,6 +3,7 @@ package com.easefun.polyv.commonui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -92,7 +93,9 @@ public abstract class PolyvCommonMediacontroller<T extends PolyvCommonVideoView>
     /**
      * @return ppt是否显示在副屏
      */
-    public boolean isShowPPTSubView(){return showPPTSubView;}
+    public boolean isShowPPTSubView() {
+        return showPPTSubView;
+    }
 
 
     @Override
@@ -109,7 +112,7 @@ public abstract class PolyvCommonMediacontroller<T extends PolyvCommonVideoView>
 
     @Override
     public void changeToLandscape() {
-        if(PolyvScreenUtils.isLandscape(context)){
+        if (PolyvScreenUtils.isLandscape(context)) {
             return;
         }
 //        context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
@@ -147,16 +150,15 @@ public abstract class PolyvCommonMediacontroller<T extends PolyvCommonVideoView>
         });
 
 
-
     }
 
     @Override
     public void changeToPortrait() {
-       if(PolyvScreenUtils.isPortrait(context)){
-           return;
-       }
+        if (PolyvScreenUtils.isPortrait(context)) {
+            return;
+        }
 //        context.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
-       PolyvScreenUtils.setPortrait(context);
+        PolyvScreenUtils.setPortrait(context);
         hide();
 
     }
@@ -205,7 +207,7 @@ public abstract class PolyvCommonMediacontroller<T extends PolyvCommonVideoView>
     @Override
     public void show(int timeout) {
         setVisibility(VISIBLE);
-        if(getHandler() != null){
+        if (getHandler() != null) {
             getHandler().removeCallbacks(hideTask);
         }
         postDelayed(hideTask, timeout);
@@ -213,7 +215,7 @@ public abstract class PolyvCommonMediacontroller<T extends PolyvCommonVideoView>
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
-        PolyvCommonLog.d(TAG,"onConfigurationChanged");
+        PolyvCommonLog.d(TAG, "onConfigurationChanged");
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             PolyvScreenUtils.hideStatusBar(context);
@@ -239,7 +241,6 @@ public abstract class PolyvCommonMediacontroller<T extends PolyvCommonVideoView>
     @Override
     public void onClick(View view) {
     }
-
 
 
     @Override

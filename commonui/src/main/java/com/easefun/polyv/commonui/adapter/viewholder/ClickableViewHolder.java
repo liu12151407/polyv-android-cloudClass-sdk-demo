@@ -135,8 +135,9 @@ public abstract class ClickableViewHolder<M, Q extends PolyvBaseRecyclerViewAdap
                         new IPolyvProgressListener() {
                             @Override
                             public void onStart(String url) {
-                                if ((int) imgLoading.getTag() != position)
+                                if ((int) imgLoading.getTag() != position) {
                                     return;
+                                }
                                 if (imgLoading.getProgress() == 0 && imgLoading.getVisibility() != View.VISIBLE) {
                                     imgLoading.setVisibility(View.VISIBLE);
                                     imageView.setImageDrawable(null);
@@ -145,8 +146,9 @@ public abstract class ClickableViewHolder<M, Q extends PolyvBaseRecyclerViewAdap
 
                             @Override
                             public void onProgress(String url, boolean isComplete, int percentage, long bytesRead, long totalBytes) {
-                                if ((int) imgLoading.getTag() != position)
+                                if ((int) imgLoading.getTag() != position) {
                                     return;
+                                }
                                 if (isComplete) {
                                     imgLoading.setVisibility(View.GONE);
 
@@ -165,8 +167,9 @@ public abstract class ClickableViewHolder<M, Q extends PolyvBaseRecyclerViewAdap
 
                             @Override
                             public void onFailed(@Nullable Exception e, Object model) {
-                                if ((int) imgLoading.getTag() != position)
+                                if ((int) imgLoading.getTag() != position) {
                                     return;
+                                }
                                 imgLoading.setVisibility(View.GONE);
                                 imgLoading.setProgress(0);
                             }

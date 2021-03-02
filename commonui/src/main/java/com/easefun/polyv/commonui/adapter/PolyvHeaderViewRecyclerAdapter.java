@@ -135,10 +135,14 @@ public class PolyvHeaderViewRecyclerAdapter extends RecyclerView.Adapter<Recycle
 
     private void setWrappedAdapter(RecyclerView.Adapter adapter) {
 
-        if (mWrappedAdapter != null) mWrappedAdapter.unregisterAdapterDataObserver(mDataObserver);
+        if (mWrappedAdapter != null) {
+            mWrappedAdapter.unregisterAdapterDataObserver(mDataObserver);
+        }
         mWrappedAdapter = adapter;
         Class adapterClass = mWrappedAdapter.getClass();
-        if (!mItemTypesOffset.containsKey(adapterClass)) putAdapterTypeOffset(adapterClass);
+        if (!mItemTypesOffset.containsKey(adapterClass)) {
+            putAdapterTypeOffset(adapterClass);
+        }
         mWrappedAdapter.registerAdapterDataObserver(mDataObserver);
     }
 

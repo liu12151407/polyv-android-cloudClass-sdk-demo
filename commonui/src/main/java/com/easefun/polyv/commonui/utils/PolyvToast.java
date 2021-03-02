@@ -29,15 +29,17 @@ public class PolyvToast {
         public void handleMessage(Message msg) {
             if (toasts.size() > 0) {
                 toasts.remove(0).cancel();
-                if (toasts.size() > 0)
+                if (toasts.size() > 0) {
                     handler.sendEmptyMessageDelayed(REMOVE, toasts.get(0).getDuration() == LENGTH_SHORT ? SHORT_DELAY : LONG_DELAY);
+                }
             }
         }
     };
 
     public PolyvToast makeText(Context context, CharSequence charSequence, int duration) {
-        if (toasts == null)
+        if (toasts == null) {
             toasts = new ArrayList<>();
+        }
         toast = Toast.makeText(context, charSequence, duration);
         View view = toast.getView();
         if (view != null) {
@@ -56,26 +58,31 @@ public class PolyvToast {
     }
 
     public void show(boolean isCancelAll) {
-        if (toast == null)
+        if (toast == null) {
             return;
-        if (isCancelAll)
+        }
+        if (isCancelAll) {
             cancelAll();
+        }
         toasts.add(toast);
-        if (toasts.size() == 1)
+        if (toasts.size() == 1) {
             handler.sendEmptyMessageDelayed(REMOVE, toast.getDuration() == LENGTH_SHORT ? SHORT_DELAY : LONG_DELAY);
+        }
         toast.show();
     }
 
     public void cancelAll() {
         handler.removeMessages(REMOVE);
-        for (int i = toasts.size() - 1; i >= 0; i--)
+        for (int i = toasts.size() - 1; i >= 0; i--) {
             toasts.get(i).cancel();
+        }
         toasts.clear();
     }
 
     public void destroy() {
-        if (toasts == null)
+        if (toasts == null) {
             return;
+        }
         cancelAll();
         toasts = null;
         toast = null;

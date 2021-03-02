@@ -111,8 +111,9 @@ public class PolyvScaleImageView extends AppCompatImageView {
         addOnLayoutChangeListener(new OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                if (!canScale())
+                if (!canScale()) {
                     return;
+                }
                 if (oldRight > 0 && right > 0) {
                     if (right > oldRight) {//切到横屏
                         resetScaleX(getDrawable());
@@ -181,8 +182,9 @@ public class PolyvScaleImageView extends AppCompatImageView {
     }
 
     public void drawablePrepared(final Drawable drawable) {
-        if (drawable == null)
+        if (drawable == null) {
             return;
+        }
         isDrawablePrepared = true;
         setVisibility(View.INVISIBLE);
         setImageDrawable(drawable);
@@ -218,8 +220,9 @@ public class PolyvScaleImageView extends AppCompatImageView {
     }
 
     private void reset() {
-        if (!isDrawablePrepared)
+        if (!isDrawablePrepared) {
             return;
+        }
         Drawable drawable = getDrawable();
         float drawableWidth = drawable.getIntrinsicWidth();
         float drawableHeight = drawable.getIntrinsicHeight();
@@ -263,8 +266,9 @@ public class PolyvScaleImageView extends AppCompatImageView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (!canScale())
+        if (!canScale()) {
             return super.onTouchEvent(event);
+        }
         if (gestureDetector.onTouchEvent(event)) {
             return true;
         }
@@ -320,15 +324,23 @@ public class PolyvScaleImageView extends AppCompatImageView {
                     //边界
                     if (isCheckTopAndBottom) {
                         if (dy > 0 && dy + rectF.top > 0)//下拉
+                        {
                             dy = -rectF.top;
+                        }
                         if (dy < 0 && rectF.bottom + dy < getHeight())//上拉
+                        {
                             dy = getHeight() - rectF.bottom;
+                        }
                     }
                     if (isCheckLeftAndRight) {
                         if (dx > 0 && dx + rectF.left > 0)//右拉
+                        {
                             dx = -rectF.left;
+                        }
                         if (dx < 0 && rectF.right + dx < getWidth())//左拉
+                        {
                             dx = getWidth() - rectF.right;
+                        }
                     }
                     if (dx == 0 && Math.abs(tempX) > Math.abs(tempY) && !isDraged) {
                         getParent().requestDisallowInterceptTouchEvent(false);

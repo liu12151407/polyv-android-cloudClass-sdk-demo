@@ -39,20 +39,23 @@ public class PolyvPressedImageView extends AppCompatImageView {
         super.onDraw(canvas);
         if (isPressed())
             // canvas.drawColor(0x33000000);
+        {
             setColorFilter(pressedColor);
-        else if (isSelected() && selectedColor != 0)
+        } else if (isSelected() && selectedColor != 0) {
             setColorFilter(selectedColor);
-        else if (!isEnabled() && disabledColor != 0)
+        } else if (!isEnabled() && disabledColor != 0) {
             setColorFilter(disabledColor);
-        else
+        } else {
             clearColorFilter();
+        }
     }
 
     @Override
     protected void dispatchSetSelected(boolean selected) {
         super.dispatchSetSelected(selected);
-        if (selectedColor != 0)
+        if (selectedColor != 0) {
             invalidate();
+        }
     }
 
     @Override
